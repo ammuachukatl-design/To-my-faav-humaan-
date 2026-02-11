@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Special Surprise ❤️</title>
+    <style>
+        body {
+            background-color: #ffeef2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+        }
+        .envelope-wrapper {
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .envelope-wrapper:hover {
+            transform: scale(1.05);
+        }
+        .heart {
+            font-size: 80px;
+            color: #ff4d6d;
+            animation: beat 1s infinite;
+        }
+        @keyframes beat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+        #letter {
+            display: none;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            max-width: 400px;
+            border: 2px solid #ff4d6d;
+            animation: fadeIn 1s ease-in;
+        }
+        h1 { color: #ff4d6d; }
+        p { line-height: 1.6; color: #555; font-size: 18px; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="envelope-wrapper" id="envelope" onclick="openLetter()">
+        <div class="heart">❤️</div>
+        <p style="color: #ff4d6d; font-weight: bold;">Click to open your letter</p>
+    </div>
+
+    <div id="letter">
+        <h1>Hi [ Arjunae😽❤️]! ❤️</h1>
+        <p>
+            I wanted to code something special just for you. <br><br>
+            Everyday in my life is better with you in it, no matter how good or bad it was.. 
+            You are my  forever favorite person, i love u to the moon and back🧿💎and I'm so happy to have you in my life!!. <br><br>
+            <b>Happy Valentine's Day my love❤️!</b>
+        </p>
+        <p>yours, <br> [Sou]</p>
+    </div>
+
+    <script>
+        function openLetter() {
+            document.getElementById('envelope').style.display = 'none';
+            document.getElementById('letter').style.display = 'block';
+            
+            // Optional: Create falling hearts
+            for(let i=0; i<20; i++) {
+                createHeart();
+            }
+        }
+
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.innerHTML = '❤️';
+            heart.style.position = 'absolute';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.top = '-5vh';
+            heart.style.fontSize = Math.random() * 20 + 10 + 'px';
+            heart.style.transition = 'transform 3s linear';
+            document.body.appendChild(heart);
+            
+            setTimeout(() => {
+                heart.style.transform = `translateY(110vh) rotate(${Math.random() * 360}deg)`;
+            }, 100);
+        }
+    </script>
+</body>
+</html>
+
